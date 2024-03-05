@@ -134,5 +134,27 @@ namespace WebAPI.Controllers
 
             return Ok(result);
         }
+        
+        [HttpGet("GetStudentsCourseAllInfo")]
+        public async Task<IActionResult> GetStudentsCourseAllInfo([FromQuery] int studentCourseId)
+        {
+            var result = await _studentCourseService.GetStudentsCourseAllInfo(studentCourseId);
+
+            return Ok(result);
+        }
+
+        [HttpGet("GetIsLikedCountByCourseIdAsync")]
+        public async Task<IActionResult> GetIsLikedCountByCourseIdAsync([FromQuery] int courseId)
+        {
+            var result = await _studentCourseService.GetIsLikedCountByCourseIdAsync(courseId);
+            return Ok(result);
+        } 
+        
+        [HttpGet("GetListStudentsNotRegisteredCourses")]
+        public async Task<IActionResult> GetListStudentsNotRegisteredCourses([FromQuery] Guid studentId)
+        {
+            var result = await _studentCourseService.GetListStudentsNotRegisteredCourses(studentId);
+            return Ok(result);
+        }
     }
 }

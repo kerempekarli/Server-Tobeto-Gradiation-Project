@@ -3,6 +3,7 @@ using Business.Abstracts;
 using Business.DTOs.Request.Course;
 using Business.DTOs.Response.Blog;
 using Business.DTOs.Response.Course;
+using Business.DTOs.Response.StudentCourse;
 using Business.Rules.BusinessRules;
 using Core.DataAccess.Paging;
 using DataAccess.Abstracts;
@@ -80,5 +81,20 @@ namespace Business.Concretes
             var result = _mapper.Map<UpdatedCourseResponse>(data);
             return result;
         }
+
+        public async Task<List<CreatedCourseResponse>> GetListAllCoursesAsync()
+        {
+            var data = await _courseDal.GetListAsync();
+
+            var allCourses = _mapper.Map<List<CreatedCourseResponse>>(data.Items);
+
+            return allCourses;
+        }
+
+     
+
+
+
+
     }
 }

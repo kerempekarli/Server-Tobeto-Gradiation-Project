@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Entities.Concretes.CoursesFolder;
 using Business.DTOs.Request.Course;
 using Business.DTOs.Response.Course;
+using Business.DTOs.Response.Lesson;
+using Business.DTOs.Response.StudentCourse;
 
 namespace Business.Abstracts
 {
@@ -17,6 +19,7 @@ namespace Business.Abstracts
         Task<UpdatedCourseResponse> Update(UpdateCourseRequest updateCourseRequest);
         Task<DeletedCourseResponse> Delete(DeleteCourseRequest deleteCourseRequest);
         Task<CreatedCourseResponse> GetById(int id);
+        Task<List<CreatedCourseResponse>> GetListAllCoursesAsync();
 
     }
 }

@@ -16,5 +16,8 @@ namespace Business.Abstracts
         Task<UpdatedLessonResponse> Update(UpdateLessonRequest updateLessonRequest);
         Task<DeletedLessonResponse> Delete(DeleteLessonRequest deleteLessonRequest);
         Task<CreatedLessonResponse> GetById(int id);
+        Task<List<GetListCourseAndLessonInfoResponse>> GetAllCourseAndLessonInfo();
+        Task<List<GetListLessonResponse>> GetListCoursesAllLessonsAsync(int courseId);
+
     }
 }

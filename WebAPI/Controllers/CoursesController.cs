@@ -68,5 +68,12 @@ namespace WebAPI.Controllers
             CourseListModel result = await _mediator.Send(getListCourseByDynamicQuery);
             return Ok(result);
         }
+
+        [HttpGet("GetListAllCoursesAsync")]
+        public async Task<IActionResult> GetListAllCoursesAsync()
+        {
+            var result = await _courseService.GetListAllCoursesAsync();
+            return Ok(result);
+        }
     }
 }

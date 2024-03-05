@@ -17,40 +17,25 @@ namespace DataAccess.EntityConfigurations
             builder.ToTable("StudentCourses").HasKey(sc => sc.Id); 
 
             builder.Property(sc => sc.StudentId)
-                .IsRequired()
                 .HasColumnName("StudentId");
 
             builder.Property(sc => sc.CourseId)
-                .IsRequired()
                 .HasColumnName("CourseId"); 
 
             builder.Property(sc => sc.Progress)
-                .IsRequired()
                 .HasColumnName("Progress"); 
 
             builder.Property(sc => sc.CertificatePath)
                 .HasColumnName("CertificatePath");
 
-            builder.Property(sc => sc.Point)
-                .IsRequired()
-                .HasColumnName("Point");
-
             builder.Property(sc => sc.Liked)
-                .IsRequired()
                 .HasColumnName("Liked"); 
 
             builder.Property(sc => sc.Saved)
-                .IsRequired()
                 .HasColumnName("Saved"); 
 
             builder.Property(sc => sc.IsPaid)
                 .HasColumnName("IsPaid");
-
-            builder.Property(sc => sc.SpentTime)
-                .HasColumnName("SpentTime"); 
-
-            builder.Property(sc => sc.EstimatedTime)
-                .HasColumnName("EstimatedTime");
 
             builder.Property(sc => sc.StartDate)
                 .HasColumnName("StartDate"); 
@@ -58,7 +43,13 @@ namespace DataAccess.EntityConfigurations
             builder.Property(sc => sc.IsCompleted)
                 .HasColumnName("IsCompleted");
 
-        builder.HasOne(sc => sc.Student)
+            builder.Property(sc => sc.EstimatedTime)
+               .HasColumnName("EstimatedTime");
+
+            builder.Property(sc => sc.SpentTime)
+                .HasColumnName("SpentTime");
+
+            builder.HasOne(sc => sc.Student)
                 .WithMany(s => s.StudentCourses)
                 .HasForeignKey(sc => sc.StudentId); 
 
